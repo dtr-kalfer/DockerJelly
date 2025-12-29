@@ -5,6 +5,8 @@
 It helps you map container relationships, document intent, and generate
 Mermaid flowcharts — without parsing Docker internals or touching the Docker socket.
 
+i.e. This tool will help you properly document your containers (Dockerfile, conf, sh, etc..)
+
 > *Let’s keep those Docker ideas smooth and organized.*
 
 ---
