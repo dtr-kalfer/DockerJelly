@@ -84,7 +84,7 @@ chmod +x show_ip.sh
 	b. con_proto83 and con_bulletin83 are children of the proxy con_nginx_s1
 	→ *We reference these with 'con_nginx_sl'*
 
-	c. con_bulletin83 is stateless
+	c. con_bulletin83 is a stateless (doesn't require a db)
 	→ *We don't include it in our db*
 
 	d. con_proto83 requires database access
