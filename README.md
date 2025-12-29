@@ -45,10 +45,15 @@ Perfect for:
 3. Generate container IP + details using ./show_ip.sh:
    ```bash
    ./show_ip.sh
-	 
-4. Append relationship rules to each line:
+4. Copy / Paste the generated info. Save as: mynetwork.txt
+5. Append relationship rules at the end of each line (mynetwork.txt):
    ```bash
 		top1 → root container (nginx/apache)
 		con_xxx → child of root
 		data+con_a+con_b → database serving those apps
 		side+con_db → side / failsafe container
+6. You should have something similar to this:
+   ```bash
+	 
+
+...to be continued
