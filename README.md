@@ -111,6 +111,4 @@ chmod +x show_ip.sh
 	
 ### 📝 Notes on naming
 
-- DockerJelly assumes containers are prefixed with con_
-- If your containers are not prefixed, add it manually in mynetwork.txt
-- The prefix is only for readability and consistency
+- The prefix 'con_' is only for readability and consistency, DockerJelly works fine even without the 'con_' prefix.
