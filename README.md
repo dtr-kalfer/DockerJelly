@@ -43,13 +43,14 @@ Perfect for:
 
 ## 🧪 How to use
 1. Copy the show_ip.sh on your docker host (home directory).
-		```bash
-		chmod +x show_ip.sh
-		./show_ip.sh
-
+```console
+chmod +x show_ip.sh
+./show_ip.sh
+```
 2. Generate container IP + details using ./show_ip.sh:
-		```bash
-		./show_ip.sh
+```console
+./show_ip.sh
+```
 4. Copy / Paste the generated info. Save as: mynetwork.txt
 5. Append relationship rules at the end of each line (mynetwork.txt):
 
