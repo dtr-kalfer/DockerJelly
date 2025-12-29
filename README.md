@@ -62,7 +62,7 @@ side+con_db → side / failsafe container
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
 
 1. Our ./show_ip.sh would look like this:
-   ```bash
+```bash
 /con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84
 /con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e
 /con_nginx_sl - IP: 192.168.8.60 - Hostname: 91e9xxxxxc17
