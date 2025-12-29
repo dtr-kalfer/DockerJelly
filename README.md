@@ -53,10 +53,10 @@ chmod +x show_ip.sh
 4. Copy / Paste the generated info. Save as: mynetwork.txt
 5. Append relationship rules at the end of each line (mynetwork.txt):
    ```bash
-		top1 → root container (nginx/apache)
-		con_xxx → child of root
-		data+con_a+con_b → database serving those apps
-		side+con_db → side / failsafe container
+top1 → root container (nginx/apache)
+con_xxx → child of root
+data+con_a+con_b → database serving those apps
+side+con_db → side / failsafe container
 
 ## 🧪 Lets practice, using our example network:
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
