@@ -56,6 +56,35 @@ Perfect for:
 		side+con_db → side / failsafe container
 6. You should have something similar to this:
    ```bash
-	 
+		/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84
+		/con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e
+		/con_nginx_sl - IP: 192.168.8.60 - Hostname: 91e9xxxxxc17
+		/con_blogbug - IP: 192.168.8.82 - Hostname: 08b69xxxxx88
+		/con_biblio_8_128 - IP: 192.168.8.88 - Hostname: xxxxxb55b90f
+		/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa
+		/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb
 
-...to be continued
+## Example network:
+![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
+
+7. Given the example above, we know: 
+	- con_nginx_sl is the reverse proxy
+	→ It is marked as the root using top1
+
+	con_proto83 and con_bulletin83 are children of the proxy
+	→ They reference con_nginx_sl
+
+	con_bulletin83 is stateless (in our network example)
+	→ It does not connect to the database
+
+	con_proto83 requires database access
+	→ It is listed inside the database rule
+
+	con_mysqldb is the database container
+	→ Declared using data+con_proto83
+
+	con_blogbug, con_biblio_8_128, and con_stray_126:
+	- Use the same database
+	- Operate independently
+	- Use a different tunnel / proxy
+	→ Declared using side+con_mysqldb
