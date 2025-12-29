@@ -86,21 +86,21 @@ side+con_db → side / failsafe container
 	→ *We include this in our db*
 
 	e. con_mysqldb is the database container
-	→ *Declared using data+con_proto83 (data+<name of container>..)*
+	→ *Declared using data+con_proto83*
 
 	f. con_blogbug, con_biblio_8_128, and con_stray_126:
-	→ *Use the same database*
-	→ *Operate independently*
-	→ *Use a different tunnel / proxy*
-	→ *Declared using side+con_mysqldb*
+	- *Use the same database*
+	- *Operate independently*
+	- *Use a different tunnel / proxy*
+	- *Declared using side+con_mysqldb*
 	
 8. The processed mynetwork.txt should end up like below, ready to upload to DockerJelly:
 	```bash
-/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84 - con_nginx_sl
-/con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e - con_nginx_sl
-/con_nginx_sl - IP: 192.168.8.60 - Hostname: 91e9xxxxxc17 - top1
-/con_blogbug - IP: 192.168.8.82 - Hostname: 08b69xxxxx88 - side+con_mysqldb
-/con_biblio_8_128 - IP: 192.168.8.88 - Hostname: xxxxxb55b90f - side+con_mysqldb
-/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa - side+con_mysqldb
-/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb - data+con_proto83
+	/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84 - con_nginx_sl
+	/con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e - con_nginx_sl
+	/con_nginx_sl - IP: 192.168.8.60 - Hostname: 91e9xxxxxc17 - top1
+	/con_blogbug - IP: 192.168.8.82 - Hostname: 08b69xxxxx88 - side+con_mysqldb
+	/con_biblio_8_128 - IP: 192.168.8.88 - Hostname: xxxxxb55b90f - side+con_mysqldb
+	/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa - side+con_mysqldb
+	/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb - data+con_proto83
 	
