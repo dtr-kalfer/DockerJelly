@@ -62,14 +62,14 @@ side+con_db → side / failsafe container
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
 
 1. Our ./show_ip.sh would look like this:
-```bash
-/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84
-/con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e
-/con_nginx_sl - IP: 192.168.8.60 - Hostname: 91e9xxxxxc17
-/con_blogbug - IP: 192.168.8.82 - Hostname: 08b69xxxxx88
-/con_biblio_8_128 - IP: 192.168.8.88 - Hostname: xxxxxb55b90f
-/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa
-/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb
+	```bash
+	/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84
+	/con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e
+	/con_nginx_sl - IP: 192.168.8.60 - Hostname: 91e9xxxxxc17
+	/con_blogbug - IP: 192.168.8.82 - Hostname: 08b69xxxxx88
+	/con_biblio_8_128 - IP: 192.168.8.88 - Hostname: xxxxxb55b90f
+	/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa
+	/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb
 
 2. From our network diagram, we know: 
 
