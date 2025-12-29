@@ -112,3 +112,26 @@ chmod +x show_ip.sh
 ### 📝 Notes on naming
 
 - The prefix 'con_' is only for readability and consistency, DockerJelly works fine even without the 'con_' prefix.
+
+## 🚀 Requirements
+
+- PHP 7.4+ (PHP 8.x supported)
+- Web server (Apache / Nginx / PHP built-in server)
+- Docker host (optional, for show_ip.sh)
+
+## Scope & limitations (good to document on GitHub)
+
+### This tool assumes:
+
+- One primary ingress (top1)
+- DB dependencies are declared via data+container
+- Containers without explicit DB linkage are assumed detached
+
+### This tool does NOT yet model:
+
+- Multiple databases
+- Cross-container non-DB dependencies
+- Message queues, caches, or internal service meshes
+- Network-level segmentation (macvlan vs bridge is abstracted)
+
+....to be continued
