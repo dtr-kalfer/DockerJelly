@@ -60,6 +60,8 @@ chmod +x show_ip.sh
 | **data+con_a+con_b**          | database serving those apps |
 | **side+con_db**     | failsafe container independent of root |
 
+6. Upload file to **DockerJelly**
+
 ## 🧪 Lets practice, using our example network:
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
 
@@ -106,4 +108,8 @@ chmod +x show_ip.sh
 	/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa - side+con_mysqldb
 	/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb - data+con_proto83
 	
-...to be continued
+### 📝 Notes on naming
+
+- DockerJelly assumes containers are prefixed with con_
+- If your containers are not prefixed, add it manually in mynetwork.txt
+- The prefix is only for readability and consistency
