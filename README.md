@@ -1,0 +1,47 @@
+# DockerJelly 🪼
+
+**DockerJelly** is a visual + ASCII Docker network notebook generator for humans.
+
+It helps you map container relationships, document intent, and generate
+Mermaid flowcharts — without parsing Docker internals or touching the Docker socket.
+
+> *Let’s keep those Docker ideas smooth and organized.*
+
+---
+
+## ✨ What problem does DockerJelly solve?
+
+Docker setups don’t fail because of commands —  
+they fail because **mental models drift**.
+
+DockerJelly gives you:
+- 🧠 mental clarity
+- 🗺️ visual relationships
+- 📝 per-container notes
+- 🧩 a lightweight, rule-based structure
+
+Perfect for:
+- Homelabs
+- Small teams
+- Schools
+- Legacy + modern Docker setups
+
+---
+
+## 🚀 Features
+
+- ASCII tree network diagram
+- Mermaid flowchart generation
+- Mermaid rendered directly in-browser
+- Per-container `.txt` documentation pages
+- No Docker socket access required
+- Works from a simple shell script output
+
+---
+
+## 🧪 How it works
+1. Copy the show_ip.sh on your docker host (home directory).
+2. sudo chmod +x show_ip.sh
+3. Generate container IP + details using ./show_ip.sh:
+   ```bash
+   ./show_ip.sh
