@@ -134,4 +134,4 @@ chmod +x show_ip.sh
 - Message queues, caches, or internal service meshes
 - Network-level segmentation (macvlan vs bridge is abstracted)
 
-....to be continued
+Copyright (c) 2025 Ferdinand Tumulak - MIT License
