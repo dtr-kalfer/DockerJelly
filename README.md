@@ -1,4 +1,4 @@
-# DockerJelly 🪼
+# DockerJelly ଳ
 
 **DockerJelly** is a visual + ASCII Docker network notebook generator for humans.
 
@@ -45,3 +45,10 @@ Perfect for:
 3. Generate container IP + details using ./show_ip.sh:
    ```bash
    ./show_ip.sh
+	 
+4. Append relationship rules to each line:
+   ```bash
+		top1 → root container (nginx/apache)
+		con_xxx → child of root
+		data+con_a+con_b → database serving those apps
+		side+con_db → side / failsafe container
