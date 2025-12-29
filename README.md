@@ -41,7 +41,7 @@ Perfect for:
 
 ---
 
-## 🧪 How it works
+## 🧪 Creating our network template
 1. Copy the show_ip.sh on your docker host (home directory).
 2. sudo chmod +x show_ip.sh
 3. Generate container IP + details using ./show_ip.sh:
@@ -67,24 +67,37 @@ Perfect for:
 ## Example network:
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
 
-7. Given the example above, we know: 
-	- con_nginx_sl is the reverse proxy
-	→ It is marked as the root using top1
+7. From our network diagram, we know: 
 
-	con_proto83 and con_bulletin83 are children of the proxy
-	→ They reference con_nginx_sl
+	a. con_nginx_sl is the reverse proxy
+	→ *We append the keyword 'top1'*
 
-	con_bulletin83 is stateless (in our network example)
-	→ It does not connect to the database
+	b. con_proto83 and con_bulletin83 are children of the proxy con_nginx_s1
+	→ *We reference these with 'con_nginx_sl'
 
-	con_proto83 requires database access
-	→ It is listed inside the database rule
+	c. con_bulletin83 is stateless
+	→ *We don't include it in our db
 
-	con_mysqldb is the database container
-	→ Declared using data+con_proto83
+	d. con_proto83 requires database access
+	→ *We include this in our db *
 
-	con_blogbug, con_biblio_8_128, and con_stray_126:
-	- Use the same database
-	- Operate independently
-	- Use a different tunnel / proxy
-	→ Declared using side+con_mysqldb
+	e. con_mysqldb is the database container
+	→ *Declared using data+con_proto83 (data+<name of container>..)*
+
+	f. con_blogbug, con_biblio_8_128, and con_stray_126:
+	→ *Use the same database*
+	→ *Operate independently*
+	→ *Use a different tunnel / proxy*
+	→ *Declared using side+con_mysqldb*
+	
+8. The processed mynetwork.txt should be:
+	```bash
+		/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84 - con_nginx_sl
+		/con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e - con_nginx_sl
+		/con_nginx_sl - IP: 192.168.8.60 - Hostname: 91e9xxxxxc17 - top1
+		/con_blogbug - IP: 192.168.8.82 - Hostname: 08b69xxxxx88 - side+con_mysqldb
+		/con_biblio_8_128 - IP: 192.168.8.88 - Hostname: xxxxxb55b90f - side+con_mysqldb
+		/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa - side+con_mysqldb
+		/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb - data+con_proto83
+	
+	
