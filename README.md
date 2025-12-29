@@ -119,7 +119,7 @@ chmod +x show_ip.sh
 - Web server (Apache / Nginx / PHP built-in server)
 - Docker host (optional, for show_ip.sh)
 
-## Scope & limitations (good to document on GitHub)
+## ✔ Scope & limitations (Important)
 
 ### This tool assumes:
 
@@ -127,7 +127,7 @@ chmod +x show_ip.sh
 - DB dependencies are declared via data+container
 - Containers without explicit DB linkage are assumed detached
 
-### This tool does NOT yet model:
+### ❌ This tool does NOT yet model:
 
 - Multiple databases
 - Cross-container non-DB dependencies
