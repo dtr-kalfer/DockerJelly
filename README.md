@@ -92,7 +92,7 @@ chmod +x show_ip.sh
 ![Homepage](./images/ascii_diagram.webp "DockerJelly Homepage")
 
 ### Text Generated Mermaid flowchart:
-
+*The basic text-based mermaid flowchart can be copy/pasted on the https://mermaid.live to make adjustment*
 ```html
 flowchart LR
 A[☁︎ con_nginx_sl<br>192.168.8.60<br>91e9xxxxxc17]
@@ -104,6 +104,8 @@ D <---> F[⬡︎ con_biblio_8_128<br>192.168.8.88<br>xxxxxb55b90f]
 D <---> G[⬡︎ con_stray_126<br>192.168.8.83<br>b0dxxxxx39fa]
 ```
 
+*Rendered network diagram from mermaid.live:*
+
 ```mermaid
 flowchart LR
 A[☁︎ con_nginx_sl<br>192.168.8.60<br>91e9xxxxxc17]
@@ -114,8 +116,6 @@ D <---> E[⬡︎ con_blogbug<br>192.168.8.82<br>08b69xxxxx88]
 D <---> F[⬡︎ con_biblio_8_128<br>192.168.8.88<br>xxxxxb55b90f]
 D <---> G[⬡︎ con_stray_126<br>192.168.8.83<br>b0dxxxxx39fa]
 ```
-	
-*The basic text-based mermaid flowchart can be copy/pasted on the https://mermaid.live to make adjustment*
 	
 ### Per-container note links
 ![Homepage](./images/per_container_notes.webp "DockerJelly Homepage")
