@@ -80,12 +80,12 @@ chmod +x show_ip.sh
 
 6. At the end of each line, append one rule that describes the container’s role:
 
-&nbsp;&nbsp;| **Rules**             | **Description**           |
-&nbsp;&nbsp;| ---------------------- | -------------------------------- |
-&nbsp;&nbsp;| **top1** | Root container (reverse proxy / entry point) |
-&nbsp;&nbsp;| **con_xxx**     | Child of the root container      |
-&nbsp;&nbsp;| **data+con_a+con_b**          | Database serving specific containers |
-&nbsp;&nbsp;| **side+con_db**     | Standalone / failsafe container using the DB |
+| **Rules**             | **Description**           |
+| ---------------------- | -------------------------------- |
+| **top1** | Root container (reverse proxy / entry point) |
+| **con_xxx**     | Child of the root container      |
+| **data+con_a+con_b**          | Database serving specific containers |
+| **side+con_db**     | Standalone / failsafe container using the DB |
 
 6. Upload mynetwork.txt to **DockerJelly** and generate:
 ### 👉 ASCII diagram
