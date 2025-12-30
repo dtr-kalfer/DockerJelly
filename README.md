@@ -71,10 +71,12 @@ chmod +x show_ip.sh
 ### Text Generated Mermaid flowchart:
 
 ![Homepage](./images/sample_flowchart.webp "DockerJelly Homepage")
+
 *The basic text-based mermaid flowchart can be copy/pasted on the https://mermaid.live to make adjustment*
 	
 ### Per-container note links
 ![Homepage](./images/per_container_notes.webp "DockerJelly Homepage")
+
 *Add these txt files manually, use filenames based on the hyperlinks*
 
 ## 🧪 Lets practice, using our example network:
