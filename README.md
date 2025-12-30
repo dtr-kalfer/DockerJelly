@@ -142,12 +142,12 @@ chmod +x show_ip.sh
 - Copy index.php into your web root (e.g. www/, htdocs/, or /var/www/html)
 
 - Or place it in a folder:
-	```bash
-	www/dockerjelly/
+```bash
+www/dockerjelly/
 Then open:
-	```console
-	http://localhost/dockerjelly/
-	```
+```console
+http://localhost/dockerjelly/
+```
 ## ✔ Scope & limitations
 
 ### This tool assumes:
