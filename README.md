@@ -100,9 +100,15 @@ chmod +x show_ip.sh
 ### Per-container note links
 ![Homepage](./images/per_container_notes.webp "DockerJelly Homepage")
 
-*Add these txt files manually, use filenames based on the hyperlinks*
+- *The 'Save as HTML' button allows you to save a copy of the generated diagram.*
 
-## 🧪 Lets practice, using our example network:
+- *Add these txt files manually, use filename based on each hyperlink.*
+
+- *Updates, docker images, .conf/.cnf/.sh, Dockerfile, bind+volume mounts..etc for each container.txt is possible, easy access by the links in html file*
+
+> Understanding + Documentation → Confidence
+
+## 🧪 Lets practice, using our sample network:
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
 
 *<small>The sample network diagram is generated using dockerjelly/mermaid.js</small>*
