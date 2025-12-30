@@ -88,10 +88,10 @@ chmod +x show_ip.sh
 | **side+con_db**     | Standalone / failsafe container using the DB |
 
 6. Upload mynetwork.txt to **DockerJelly** and generate:
-### ASCII diagram
+### 👉 ASCII diagram
 ![Homepage](./images/ascii_diagram.webp "DockerJelly Homepage")
 
-### Text Generated Mermaid flowchart:
+### 👉 Text Generated Mermaid flowchart:
 *The basic text-based mermaid flowchart can be copy/pasted on the https://mermaid.live to make adjustment*
 ```html
 flowchart LR
@@ -117,7 +117,7 @@ D <---> F[⬡︎ con_biblio_8_128<br>192.168.8.88<br>xxxxxb55b90f]
 D <---> G[⬡︎ con_stray_126<br>192.168.8.83<br>b0dxxxxx39fa]
 ```
 	
-### Per-container note links
+### 👉 Per-container note links
 ![Homepage](./images/per_container_notes.webp "DockerJelly Homepage")
 
 - *The 'Save as HTML' button allows you to save a copy of the generated diagram.*
