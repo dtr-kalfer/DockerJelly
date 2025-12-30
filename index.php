@@ -353,7 +353,7 @@ a, a:visited {
 <h3>Mermaid Flowchart</h3>
 <textarea rows="15" cols="90" readonly><?= htmlspecialchars($mermaid) ?></textarea>
 <p>Copy and paste this into https://mermaid.live</p>
-<h3>Mermaid Flowchart (Live)</h3>
+<h3>Mermaid Flowchart (Live) *Note: Sometimes render takes a few seconds</h3>
 	<div class="mermaid">
 	<?= htmlspecialchars($mermaid) ?>
 	</div>
@@ -369,7 +369,7 @@ a, a:visited {
 		<html>
 		<head>
 		<meta charset="utf-8">
-		<title>Docker simple ASCII Network Diagram Gen.</title>
+		<title>DockerJelly simple ASCII Network Diagram Gen.</title>
 		<style>
 		body {
 				font-family: monospace;
@@ -391,7 +391,7 @@ a, a:visited {
 		</head>
 		<body>
 
-		<h2>Docker simple ASCII Network Diagram Generator (Using ./show_ip.sh + Rules)</h2>
+		<h2>DockerJelly simple ASCII Network Diagram Generator (Using ./show_ip.sh + Rules)</h2>
 		<h2>Please follow-up the contents of each .txt in the URL</h2>
 		${preContent}
 
