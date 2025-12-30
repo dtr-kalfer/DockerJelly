@@ -345,7 +345,7 @@ a, a:visited {
 		echo buildDiagramHtml($nodes);
 	?>
 		<button id="saveBtn">Save as HTML</button>
-		<h3>*note: After you save the html, you can fill out the contents of each .txt file links labeled by container names. You can append changes in those .txt file for improvements on your docker network </h3>
+		<h3>*note: After you save the html, place those .txt files alongside with the html and document your network</h3>
 	<?php 
 	} 
 ?>
