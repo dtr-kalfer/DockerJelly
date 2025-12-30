@@ -67,15 +67,13 @@ This prints container names, IP addresses, and hostnames.
 | **side+con_db**     | Standalone / failsafe container using the DB |
 
 6. Upload mynetwork.txt to **DockerJelly** and generate:
-![Homepage](./images/upload_to_dockerjelly.webp "DockerJelly Homepage")
-
-- ASCII diagram
+### ASCII diagram
 ![Homepage](./images/ascii_diagram.webp "DockerJelly Homepage")
 
-- Mermaid flowchart
+### Mermaid flowchart
 ![Homepage](./images/sample_flowchart.webp "DockerJelly Homepage")
 
-- Per-container note links
+### Per-container note links
 ![Homepage](./images/per_container_notes.webp "DockerJelly Homepage")
 
 ## 🧪 Lets practice, using our example network:
