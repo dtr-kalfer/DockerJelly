@@ -10,6 +10,29 @@ Think of it as a living **ops notebook** for your containers
 
 ---
 
+## 🌱 Why DockerJelly Exists
+
+Docker is powerful — but power without clarity creates friction.
+
+Most Docker tools focus on execution: building, running, deploying.
+DockerJelly focuses on **understanding**.
+
+It exists because real-world Docker setups are often:
+
+- Evolved over time
+- Maintained by different people
+- Remembered “in someone’s head”
+
+**DockerJelly** turns that invisible knowledge into something **visible, lightweight, and human-readable**.
+
+- Not another orchestrator.
+- Not a replacement for Docker Compose or Kubernetes.
+- Just a calm space to think, document, and reason about your containers.
+
+Because **good infrastructure** starts with a **clear mental model**.
+
+---
+
 ## ✨ What problem does DockerJelly solve?
 
 Docker setups don’t fail because of commands —  
