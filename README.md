@@ -97,16 +97,16 @@ chmod +x show_ip.sh
 2. From our network diagram above, we know: 
 
 	a. con_nginx_sl is the reverse proxy
-	→ *We append the keyword 'top1'*
+	→ *Append **top1** *
 
 	b. con_proto83 and con_bulletin83 are children of the proxy con_nginx_s1
 	→ *We reference these with 'con_nginx_sl'*
 
-	c. con_bulletin83 is a stateless (doesn't require a db)
-	→ *We don't include it in our db*
+	c. con_bulletin83 is a stateless
+	→ *No database dependency*
 
 	d. con_proto83 requires database access
-	→ *We include this in our db*
+	→ *Include in the database rule*
 
 	e. con_mysqldb is the database container
 	→ *Declared using data+con_proto83*
@@ -117,7 +117,7 @@ chmod +x show_ip.sh
 	- *Use a different tunnel / proxy*
 	- *Declared using side+con_mysqldb*
 	
-8. The processed mynetwork.txt should end up like below, ready to upload to DockerJelly:
+8. Final mynetwork.txt, ready to upload to DockerJelly:
 	```bash
 	/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84 - con_nginx_sl
 	/con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e - con_nginx_sl
@@ -139,16 +139,22 @@ chmod +x show_ip.sh
 
 ### Install
 
-- Copy the index.php into the www folder inside your installation, then type localhost into your browser
-- If you prefer organized, extract into a folder www/dockerjelly/, then localhost/dockerjelly or http://localhost/dockerjelly/
+- Copy index.php into your web root (e.g. www/, htdocs/, or /var/www/html)
 
-## ✔ Scope & limitations (Important)
+- Or place it in a folder:
+	```bash
+	www/dockerjelly/
+Then open:
+	```bash
+	http://localhost/dockerjelly/
+
+## ✔ Scope & limitations
 
 ### This tool assumes:
 
 - One primary ingress (top1)
 - DB dependencies are declared via data+container
-- Containers without explicit DB linkage are assumed detached
+- Containers without explicit DB linkage are detached
 
 ### ❌ This tool does NOT yet model:
 
@@ -162,4 +168,8 @@ Mermaid.js — for the incredible diagram engine (MIT License)
 https://mermaid.js.org/
 https://github.com/mermaid-js/mermaid
 
-Copyright (c) DockerJelly 2025 Ferdinand Tumulak - MIT License
+📄 License
+
+MIT License
+Copyright © 2025
+Ferdinand Tumulak
