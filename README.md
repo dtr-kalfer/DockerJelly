@@ -69,7 +69,7 @@ Perfect for:
 chmod +x show_ip.sh
 ./show_ip.sh
 ```
-*This prints container names, IP addresses, and hostnames.*
+- *This prints container names, IP addresses, and hostnames.*
 
 2. Create your network file
 ```console
