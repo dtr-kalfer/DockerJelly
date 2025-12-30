@@ -93,7 +93,7 @@ chmod +x show_ip.sh
 
 ### Text Generated Mermaid flowchart:
 
-	...html
+	```html
 	flowchart LR
 	A[☁︎ con_nginx_sl<br>192.168.8.60<br>91e9xxxxxc17]
 	A <---> B[🐘 con_proto83<br>192.168.8.58<br>cff4xxxxxa84]
