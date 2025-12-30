@@ -188,11 +188,15 @@ http://localhost/dockerjelly/
 
 ## 🙏 Credits
 Mermaid.js — for the incredible diagram engine (MIT License)
+
 https://mermaid.js.org/
+
 https://github.com/mermaid-js/mermaid
 
-📄 License
+## 📄 License
 
 MIT License
+
 Copyright © 2025
+
 Ferdinand Tumulak
