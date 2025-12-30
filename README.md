@@ -82,6 +82,8 @@ chmod +x show_ip.sh
 ## 🧪 Lets practice, using our example network:
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
 
+*<small>The sample network diagram is generated using dockerjelly/mermaid.js</small>*
+
 1. Our ./show_ip.sh would look like this:
 	```bash
 	/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84
