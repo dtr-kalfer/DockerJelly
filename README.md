@@ -145,9 +145,9 @@ chmod +x show_ip.sh
 	```bash
 	www/dockerjelly/
 Then open:
-	```bash
+	```console
 	http://localhost/dockerjelly/
-
+	```
 ## ✔ Scope & limitations
 
 ### This tool assumes:
