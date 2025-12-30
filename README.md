@@ -2,10 +2,9 @@
 
 **DockerJelly** is a visual + ASCII Docker network notebook generator for humans.
 
-It helps you map container relationships, document intent, and generate
-Mermaid flowcharts — without parsing Docker internals or touching the Docker socket.
+It helps you map **container relationships**, **document intent**, and **generate Mermaid flowcharts** without parsing Docker internals or touching the Docker socket.
 
-i.e. This tool will help you properly document your containers (Dockerfile, conf, sh, etc..)
+Think of it as a living **ops notebook** for your containers
 
 > *Let’s keep those Docker ideas smooth and organized.*
 
@@ -47,21 +46,37 @@ Perfect for:
 chmod +x show_ip.sh
 ./show_ip.sh
 ```
-2. Generate container IP + details using ./show_ip.sh:
+This prints container names, IP addresses, and hostnames.
+
+2. Create your network file
 ```console
 ./show_ip.sh
 ```
-4. Copy / Paste the generated info. Save as: mynetwork.txt
-5. Append relationship rules at the end of each line (mynetwork.txt):
+4. Copy the output of ./show_ip.sh
+5. Paste it into a text file, Save it as: mynetwork.txt
+
+6. Append relationship rules
+
+	At the end of each line, append one rule that describes the container’s role:
 
 | **Rules**             | **Description**           |
 | ---------------------- | -------------------------------- |
-| **top1** | root container (nginx/apache) |
-| **con_xxx**     | child of root      |
-| **data+con_a+con_b**          | database serving those apps |
-| **side+con_db**     | failsafe container independent of root |
+| **top1** | Root container (reverse proxy / entry point) |
+| **con_xxx**     | Child of the root container      |
+| **data+con_a+con_b**          | Database serving specific containers |
+| **side+con_db**     | Standalone / failsafe container using the DB |
 
-6. Upload file to **DockerJelly**
+6. Upload mynetwork.txt to **DockerJelly** and generate:
+![Homepage](./images/upload_to_dockerjelly.webp "DockerJelly Homepage")
+
+- ASCII diagram
+![Homepage](./images/ascii_diagram.webp "DockerJelly Homepage")
+
+- Mermaid flowchart
+![Homepage](./images/sample_flowchart.webp "DockerJelly Homepage")
+
+- Per-container note links
+![Homepage](./images/per_container_notes.webp "DockerJelly Homepage")
 
 ## 🧪 Lets practice, using our example network:
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
@@ -113,11 +128,16 @@ chmod +x show_ip.sh
 
 - The prefix 'con_' is only for readability and consistency, DockerJelly works fine even without the 'con_' prefix.
 
-## 🚀 Requirements
+## 🚀 Requirements and how to install:
 
-- PHP 7.4+ (PHP 8.x supported)
+- PHP 7.4+ (PHP 8.x supported, You can use WAMP/LAMP/XAMPP) 
 - Web server (Apache / Nginx / PHP built-in server)
 - Docker host (optional, for show_ip.sh)
+
+### Install
+
+- Copy the index.php into the www folder inside your installation, then type localhost into your browser
+- If you prefer organized, extract into a folder www/dockerjelly/, then localhost/dockerjelly or http://localhost/dockerjelly/
 
 ## ✔ Scope & limitations (Important)
 
@@ -134,4 +154,9 @@ chmod +x show_ip.sh
 - Message queues, caches, or internal service meshes
 - Network-level segmentation (macvlan vs bridge is abstracted)
 
-Copyright (c) 2025 Ferdinand Tumulak - MIT License
+## 🙏 Credits
+Mermaid.js — for the incredible diagram engine (MIT License)
+https://mermaid.js.org/
+https://github.com/mermaid-js/mermaid
+
+Copyright (c) DockerJelly 2025 Ferdinand Tumulak - MIT License
