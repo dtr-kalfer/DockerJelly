@@ -46,7 +46,7 @@ Perfect for:
 chmod +x show_ip.sh
 ./show_ip.sh
 ```
-This prints container names, IP addresses, and hostnames.
+	This prints container names, IP addresses, and hostnames.
 
 2. Create your network file
 ```console
@@ -55,9 +55,7 @@ This prints container names, IP addresses, and hostnames.
 4. Copy the output of ./show_ip.sh
 5. Paste it into a text file, Save it as: mynetwork.txt
 
-6. Append relationship rules
-
-	At the end of each line, append one rule that describes the container’s role:
+6. At the end of each line, append one rule that describes the container’s role:
 
 | **Rules**             | **Description**           |
 | ---------------------- | -------------------------------- |
@@ -70,11 +68,14 @@ This prints container names, IP addresses, and hostnames.
 ### ASCII diagram
 ![Homepage](./images/ascii_diagram.webp "DockerJelly Homepage")
 
-### Mermaid flowchart
-![Homepage](./images/sample_flowchart.webp "DockerJelly Homepage")
+### Text Generated Mermaid flowchart:
 
+![Homepage](./images/sample_flowchart.webp "DockerJelly Homepage")
+*The basic text-based mermaid flowchart can be copy/pasted on the https://mermaid.live to make adjustment*
+	
 ### Per-container note links
 ![Homepage](./images/per_container_notes.webp "DockerJelly Homepage")
+*Add these txt files manually, use filenames based on the hyperlinks*
 
 ## 🧪 Lets practice, using our example network:
 ![Homepage](./images/mynetwork.webp "DockerJelly Homepage")
@@ -89,7 +90,7 @@ This prints container names, IP addresses, and hostnames.
 	/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa
 	/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb
 
-2. From our network diagram, we know: 
+2. From our network diagram above, we know: 
 
 	a. con_nginx_sl is the reverse proxy
 	→ *We append the keyword 'top1'*
