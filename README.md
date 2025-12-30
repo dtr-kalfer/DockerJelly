@@ -198,5 +198,5 @@ https://github.com/mermaid-js/mermaid
 ## 📄 License
 
 MIT License
-Copyright © 2025
-Ferdinand Tumulak
+
+Copyright © 2025 Ferdinand Tumulak
