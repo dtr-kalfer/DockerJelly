@@ -152,11 +152,13 @@ chmod +x show_ip.sh
 	
 ### 📝 Notes on naming
 
-- The prefix 'con_' is only for readability and consistency, DockerJelly works fine even without the 'con_' prefix.
+- The con_ prefix is recommended, not required
+- DockerJelly works fine without it
+- The prefix simply improves readability and consistency
 
-## 🚀 Requirements and how to install:
+### 🚀 Requirements and how to install:
 
-- PHP 7.4+ (PHP 8.x supported, You can use WAMP/LAMP/XAMPP) 
+- PHP 7.4+ (PHP 8.x supported) 
 - Web server (Apache / Nginx / PHP built-in server)
 - Docker host (optional, for show_ip.sh)
 
@@ -173,7 +175,7 @@ http://localhost/dockerjelly/
 ```
 ## ✔ Scope & limitations
 
-### This tool assumes:
+### ✔ This tool assumes:
 
 - One primary ingress (top1)
 - DB dependencies are declared via data+container
@@ -189,14 +191,12 @@ http://localhost/dockerjelly/
 ## 🙏 Credits
 Mermaid.js — for the incredible diagram engine (MIT License)
 
-https://mermaid.js.org/
+	https://mermaid.js.org/
 
-https://github.com/mermaid-js/mermaid
+	https://github.com/mermaid-js/mermaid
 
 ## 📄 License
 
-MIT License
-
-Copyright © 2025
-
-Ferdinand Tumulak
+	MIT License
+	Copyright © 2025
+	Ferdinand Tumulak
