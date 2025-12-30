@@ -75,10 +75,10 @@ chmod +x show_ip.sh
 ```console
 ./show_ip.sh
 ```
-4. Copy the output of ./show_ip.sh
-5. Paste it into a text file, Save it as: mynetwork.txt
+3. Copy the output of ./show_ip.sh
+4. Paste it into a text file, Save it as: mynetwork.txt
 
-6. At the end of each line, append one rule that describes the container’s role:
+5. At the end of each line, append one rule that describes the container’s role:
 
 | **Rules**             | **Description**           |
 | ---------------------- | -------------------------------- |
