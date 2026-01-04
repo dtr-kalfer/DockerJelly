@@ -86,7 +86,7 @@ chmod +x show_ip.sh
 | **prxy**     | Internal reverse proxy (Nginx, Traefik, Apache)      |
 | **top1** | Use this as root container ONLY if you don't have tunnel (Proxy only setup) |
 | **app+con_xxx**     | Child of prxy (or top1), where your app lives      |
-| **data+con_a+con_b..**          | Database serving specific app containers, append app containers using (+) symbol *no spaces*|
+| **data+con_a+con_b..+con_x**          | Database serving specific app containers, append app containers using (+) symbol *no spaces*|
 | **side+con_db**     | Standalone / failsafe container using the Database |
 
 6. Upload mynetwork.txt to **DockerJelly** and generate:
@@ -156,19 +156,19 @@ E <---> H[⬡︎ con_biblio_8_128<br>192.168.88.88<br>xxxxxxxxb90f]
 	b. con_proxy1 is our proxy
 	→ *Append **prxy** *
 
-	b. con_proto83 and con_bulletin83 are children of the proxy con_proxy1
+	c. con_proto83 and con_bulletin83 are children of the proxy con_proxy1
 	→ *We reference these with 'con_proxy1'*
 
-	c. con_bulletin is stateless
+	d. con_bulletin is stateless
 	→ *No database dependency*
 
-	d. con_proto83 requires database access
+	e. con_proto83 requires database access
 	→ *Include in the database rule*
 
-	e. con_mysql is the database container
+	f. con_mysql is the database container
 	→ *Declared using data+con_proto83*
 
-	f. con_blogbug, con_biblio_8_128, and con_tracer_126:
+	g. con_blogbug, con_biblio_8_128, and con_tracer_126:
 	- *Use the same database*
 	- *Operate independently*
 	- *Use a different tunnel / proxy*
