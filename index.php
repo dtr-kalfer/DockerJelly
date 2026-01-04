@@ -450,7 +450,7 @@ a, a:visited {
 		</head>
 		<body>
 
-		<h2>Docker simple ASCII Network Diagram Generator (Using ./show_ip.sh + Rules)</h2>
+		<h2>Docker simple ASCII Network Diagram Generator (Using ./show_ip.sh + Rules) v2.0</h2>
 		<h2>Please follow-up the contents of each .txt in the URL</h2>
 		${preContent}
 
