@@ -89,32 +89,34 @@ chmod +x show_ip.sh
 
 6. Upload mynetwork.txt to **DockerJelly** and generate:
 ### 👉 ASCII diagram
-![Homepage](./images/ascii_diagram.webp "DockerJelly Homepage")
+![Homepage](./images/ascii_diagram2.webp "DockerJelly Homepage")
 
 ### 👉 Text Generated Mermaid flowchart:
 *The basic text-based mermaid flowchart can be copy/pasted on the https://mermaid.live to make adjustment*
 ```html
 flowchart LR
-A[☁︎ con_nginx_sl<br>192.168.8.60<br>91e9xxxxxc17]
-A <---> B[🐘 con_proto83<br>192.168.8.58<br>cff4xxxxxa84]
-A <---> C[🐘 con_bulletin83<br>192.168.8.59<br>90xxxxxe446e]
-B <---> D[🗄️ con_mysqldb<br>192.168.8.81<br>0cf70xxxxxbb]
-D <---> E[⬡︎ con_blogbug<br>192.168.8.82<br>08b69xxxxx88]
-D <---> F[⬡︎ con_biblio_8_128<br>192.168.8.88<br>xxxxxb55b90f]
-D <---> G[⬡︎ con_stray_126<br>192.168.8.83<br>b0dxxxxx39fa]
+A[☁︎ con_tunnelx<br>192.168.88.99<br>xxxxxxxx3e42]
+A -.-> B[🧭 con_proxy1<br>192.168.88.61<br>xxxxxxxx72ff]
+B <---> C[🐘 con_proto83<br>192.168.88.58<br>xxxxxxxx2a84]
+B <---> D[🐘 con_bulletin<br>192.168.88.59<br>xxxxxxxx446e]
+C <---> E[🗄️ con_mysql<br>192.168.88.81<br>xxxxxxxx2bbb]
+E <---> F[⬡︎ con_tracer_126<br>192.168.88.83<br>xxxxxxxxd813]
+E <---> G[⬡︎ con_blogbug<br>192.168.88.82<br>xxxxxxxx0188]
+E <---> H[⬡︎ con_biblio_8_128<br>192.168.88.88<br>xxxxxxxxb90f]
 ```
 
 *Rendered network diagram from mermaid.live:*
 
 ```mermaid
 flowchart LR
-A[☁︎ con_nginx_sl<br>192.168.8.60<br>91e9xxxxxc17]
-A <---> B[🐘 con_proto83<br>192.168.8.58<br>cff4xxxxxa84]
-A <---> C[🐘 con_bulletin83<br>192.168.8.59<br>90xxxxxe446e]
-B <---> D[🗄️ con_mysqldb<br>192.168.8.81<br>0cf70xxxxxbb]
-D <---> E[⬡︎ con_blogbug<br>192.168.8.82<br>08b69xxxxx88]
-D <---> F[⬡︎ con_biblio_8_128<br>192.168.8.88<br>xxxxxb55b90f]
-D <---> G[⬡︎ con_stray_126<br>192.168.8.83<br>b0dxxxxx39fa]
+A[☁︎ con_tunnelx<br>192.168.88.99<br>xxxxxxxx3e42]
+A -.-> B[🧭 con_proxy1<br>192.168.88.61<br>xxxxxxxx72ff]
+B <---> C[🐘 con_proto83<br>192.168.88.58<br>xxxxxxxx2a84]
+B <---> D[🐘 con_bulletin<br>192.168.88.59<br>xxxxxxxx446e]
+C <---> E[🗄️ con_mysql<br>192.168.88.81<br>xxxxxxxx2bbb]
+E <---> F[⬡︎ con_tracer_126<br>192.168.88.83<br>xxxxxxxxd813]
+E <---> G[⬡︎ con_blogbug<br>192.168.88.82<br>xxxxxxxx0188]
+E <---> H[⬡︎ con_biblio_8_128<br>192.168.88.88<br>xxxxxxxxb90f]
 ```
 	
 ### 👉 Per-container note links
