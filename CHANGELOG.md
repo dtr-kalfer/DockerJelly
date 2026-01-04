@@ -3,10 +3,10 @@
 - n.a.
 
 ### Changes
-- Updated mynetwork.txt compatible to new rules/roles
+- Updated sample mynetwork.txt compatible to new rules/roles
 
 ### Fixed
-- n.a.
+- Used the keyword 'STOPPED' on the show_ip.sh instead of 'Invalid IP'. This occurs when a container is stopped, and a ./show_ip.sh is executed
 
 ---
 
