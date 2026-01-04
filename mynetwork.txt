@@ -1,7 +1,8 @@
-/con_proto83 - IP: 192.168.8.58 - Hostname: cff4xxxxxa84 - con_nginx_sl
-/con_bulletin83 - IP: 192.168.8.59 - Hostname: 90xxxxxe446e - con_nginx_sl
-/con_nginx_sl - IP: 192.168.8.60 - Hostname: 91e9xxxxxc17 - top1
-/con_blogbug - IP: 192.168.8.82 - Hostname: 08b69xxxxx88 - side+con_mysqldb
-/con_biblio_8_128 - IP: 192.168.8.88 - Hostname: xxxxxb55b90f - side+con_mysqldb
-/con_stray_126 - IP: 192.168.8.83 - Hostname: b0dxxxxx39fa - side+con_mysqldb
-/con_mysqldb - IP: 192.168.8.81 - Hostname: 0cf70xxxxxbb - data+con_proto83
+/con_tunnelx - IP: 192.168.88.99 - Hostname: xxxxxxxx3e42 - tunn
+/con_proxy1 - IP: 192.168.88.61 - Hostname: xxxxxxxx72ff - prxy
+/con_tracer_126 - IP: 192.168.88.83 - Hostname: xxxxxxxxd813 - side+con_mysql
+/con_proto83 - IP: 192.168.88.58 - Hostname: xxxxxxxx2a84 - app+con_proxy1
+/con_bulletin - IP: 192.168.88.59 - Hostname: xxxxxxxx446e - app+con_proxy1
+/con_blogbug - IP: 192.168.88.82 - Hostname: xxxxxxxx0188 - side+con_mysql
+/con_biblio_8_128 - IP: 192.168.88.88 - Hostname: xxxxxxxxb90f - side+con_mysql
+/con_mysql - IP: 192.168.88.81 - Hostname: xxxxxxxx2bbb - data+con_proto83
