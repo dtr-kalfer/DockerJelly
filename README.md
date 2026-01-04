@@ -120,7 +120,7 @@ E <---> H[⬡︎ con_biblio_8_128<br>192.168.88.88<br>xxxxxxxxb90f]
 ```
 	
 ### 👉 Per-container note links
-![Homepage](./images/per_container_notes.webp "DockerJelly Homepage")
+![Homepage](./images/per_container_notes2.webp "DockerJelly Homepage")
 
 - *The 'Save as HTML' button allows you to save a copy of the generated diagram.*
 
