@@ -1,10 +1,25 @@
 <?php
 $diagram = '';
 
-// function isTunnel(array $node): bool
-// {
-    // return str_contains($node['link'], 'tunnel');
-// }
+function hasTunnel(array $nodes): bool {
+		foreach ($nodes as $n) {
+				$link = trim($n['link']);
+
+				foreach ($nodes as $n) {
+						if ($n['link'] === $rootKey) {
+								$tree['children'][] = $n;
+						}
+				}
+
+		}
+}
+
+function findByLink(array $nodes, string $link): ?array {
+    foreach ($nodes as $n) {
+        if ($n['link'] === $link) return $n;
+    }
+    return null;
+}
 
 
 function labelOf(string $name): string {
@@ -31,30 +46,37 @@ function keyOf(string $name): string {
 
 function mermaidIcon(array $node): string
 {
-    $link = $node['link'];
-
-    if ($link === 'top1') return '☁︎';
-    if (str_starts_with($link, 'data+')) return '🗄️';
-    if (str_starts_with($link, 'side+')) return '⬡︎';
-    if (str_contains($link, 'tunnel')) return '☁︎';
-
-    return '🐘';
+    return match (true) {
+        $node['link'] === 'tunn' => '☁︎',
+        $node['link'] === 'prxy' => '🧭',
+        $node['link'] === 'top1' => '☁︎',
+        str_starts_with($node['link'], 'data+') => '🗄️',
+        str_starts_with($node['link'], 'side+') => '⬡︎',
+        default => '🐘',
+    };
 }
+
 
 function buildTree(array $nodes): array {
     $tree = [
-        'root' => null,
+        'tunnel'   => null,
+        'proxy'    => null,
+        'root'     => null,
         'children' => [],
-        'db' => null,
-        'side' => []
+        'db'       => null,
+        'side'     => []
     ];
 
-    // find root
-    foreach ($nodes as $n) {
-        if ($n['link'] === 'top1') {
-            $tree['root'] = $n;
-            break;
-        }
+    // --- NEW: tunnel / proxy detection ---
+    $tree['tunnel'] = findByLink($nodes, 'tunn');
+    $tree['proxy']  = findByLink($nodes, 'prxy');
+
+    // Determine root logic
+    if ($tree['tunnel'] && $tree['proxy']) {
+        $tree['root'] = $tree['proxy'];
+    } else {
+        // fallback to legacy top1
+        $tree['root'] = findByLink($nodes, 'top1');
     }
 
     if (!$tree['root']) {
@@ -63,20 +85,24 @@ function buildTree(array $nodes): array {
 
     $rootKey = keyOf($tree['root']['name']);
 
-    // root children
-    foreach ($nodes as $n) {
-        if ($n['link'] === $rootKey) {
-            $tree['children'][] = $n;
-        }
-    }
+    // children of root (proxy or top1)
+		foreach ($nodes as $n) {
+				$link = trim($n['link']);
 
-    // db
+				if (
+						$link === $rootKey || 
+						$link === "app+{$rootKey}"
+				) {
+						$tree['children'][] = $n;
+				}
+		}
+
+    // DB + side logic (unchanged)
     foreach ($nodes as $n) {
         if (str_starts_with($n['link'], 'data+')) {
             $tree['db'] = $n;
             $dbKey = keyOf($n['name']);
 
-            // side containers
             foreach ($nodes as $side) {
                 if (str_starts_with(trim($side['link']), "side+{$dbKey}")) {
                     $tree['side'][] = $side;
@@ -87,6 +113,7 @@ function buildTree(array $nodes): array {
 
     return $tree;
 }
+
 
 function renderNodeHtml(array $node, string $prefix, bool $isLast, string $suffix = ''): string {
     $branch = $isLast ? '└─ ' : '├─ ';
@@ -159,12 +186,24 @@ function buildDiagramHtml(array $nodes): string {
 
     $out = "<pre>";
 
-    // root
-    $root = $tree['root'];
-    $out .= '[<a href="' . pageFor($root['name']) . '" target="_blank">'
-         . htmlspecialchars($root['name']) . '</a>'
-         . ' - ' . htmlspecialchars($root['ip'])
-         . ' - ' . htmlspecialchars($root['host']) . "]\n";
+		// OPTIONAL virtual parent (tunnel)
+		if ($tree['tunnel']) {
+				$t = $tree['tunnel'];
+
+				$out .= '[<a href="' . pageFor($t['name']) . '" target="_blank">'
+						 . htmlspecialchars($t['name']) . '</a>'
+						 . ' - (' . htmlspecialchars($t['ip']) . ')'
+						 . ' - ' . htmlspecialchars($t['host'])
+						 . "]\n";
+		}
+
+		// root (proxy)
+		$root = $tree['root'];
+		$out .= '[<a href="' . pageFor($root['name']) . '" target="_blank">'
+				 . htmlspecialchars($root['name']) . '</a>'
+				 . ' - ' . htmlspecialchars($root['ip'])
+				 . ' - ' . htmlspecialchars($root['host'])
+				 . "]\n";
 
     // children
     $childCount = count($tree['children']);
@@ -229,9 +268,22 @@ function buildDiagramMermaid(array $nodes): string
     $lines = [];
     $lines[] = "flowchart LR";
 
+		// --- NEW: tunnel → proxy ---
+		if ($tree['tunnel'] && $tree['proxy']) {
+				$tunnelId = $getId($tree['tunnel']['name']);
+				$proxyId  = $getId($tree['proxy']['name']);
+
+				$lines[] = "{$tunnelId}[" . mermaidLabel($tree['tunnel']) . "]";
+				$lines[] = "{$tunnelId} -.-> {$proxyId}[" . mermaidLabel($tree['proxy']) . "]";
+		}
+
     $root = $tree['root'];
     $rootId = $getId($root['name']);
-    $lines[] = "{$rootId}[" . mermaidLabel($root) . "]";
+		
+		if (!$tree['proxy']) {
+				$lines[] = "{$rootId}[" . mermaidLabel($root) . "]";
+		}		
+    # $lines[] = "{$rootId}[" . mermaidLabel($root) . "]";
 
     // root children
 		$dbKey = $tree['db'] ? keyOf($tree['db']['name']) : null;
@@ -271,6 +323,9 @@ function buildDiagramMermaid(array $nodes): string
 		}
 
 
+
+
+
     return implode("\n", array_unique($lines));
 }
 
@@ -287,7 +342,7 @@ if (!empty($_FILES['file']['tmp_name'])) {
 <html>
 <head>
 <meta charset="utf-8">
-<title>DockerJelly ASCII Network Diagram Gen. v1.0</title>
+<title>DockerJelly ASCII Network Diagram Gen. v2.0</title>
 <style>
 body {
     font-family: monospace;
@@ -313,7 +368,7 @@ a, a:visited {
 </head>
 <body>
 
-<h2>DockerJelly ASCII Network Diagram Generator v1.0 (Using ./show_ip.sh)</h2>
+<h2>DockerJelly ASCII Network Diagram Generator v2.0 (Using ./show_ip.sh)</h2>
 
 <form method="post" enctype="multipart/form-data">
     <input type="file" name="file" accept=".txt" required>
@@ -323,20 +378,24 @@ a, a:visited {
 
 <h3>Copy the ./show_ip.sh results, append for each container, save as network.txt</h3>
 	<ul>
-		<li>top1 → root container (nginx or apache)</li>
-		<li>con_xxx → child of root container</li>
+		<li>tunn → Your tunnel container</li>
+		<li>prxy → Proxy container, Connected to your tunnel (tunn)</li>
+		<li>top1 → Use this as root container only if you don't have tunnel (Proxy only setup)</li>
+		<li>app+con_xxx → child of prxy (if using tunnel), or top1</li>
 		<li>data+con_a+con_b → DB container serving those apps</li>
-		<li>side+con_mysql → side/failsafe container attached to DB (optional standalone setup)</li>
+		<li>side+con_mysql → side/failsafe container attached to DB</li>
 	</ul>
 
 <h3>Example of network.txt:</h3>
 <p>
-/con_quizbee - IP: 192.168.1.65 - Hostname: xxxxxxxx27e8 - con_mynginx<br>
-/con_biblio - IP: 192.168.1.67 - Hostname: xxxxxxxx6c42 - con_mynginx<br>
-/con_nginx - IP: 192.168.1.69 - Hostname: xxxxxxxx76b7 - top1<br>
-/con_quizbee_back - IP: 192.168.1.64 - Hostname: xxxxxxxx1ff4 - side+con_mysql<br>
-/con_biblio_back - IP: 192.168.1.77 - Hostname: xxxxxxxx3ca4 - side+con_mysql<br>
-/con_mysql - IP: 192.168.1.79 - Hostname: xxxxxxxx51a3 - data+con_bibinow<br>
+/con_tunnelx - IP: 192.168.88.99 - Hostname: xxxxxxxx3e42 - tunn<br>
+/con_proxy1 - IP: 192.168.88.61 - Hostname: xxxxxxxx72ff - prxy<br>
+/con_tracer_126 - IP: 192.168.88.83 - Hostname: xxxxxxxxd813 - side+con_mysql<br>
+/con_proto83 - IP: 192.168.88.58 - Hostname: xxxxxxxx2a84 - app+con_proxy1<br>
+/con_bulletin - IP: 192.168.88.59 - Hostname: xxxxxxxx446e - app+con_proxy1<br>
+/con_blogbug - IP: 192.168.88.82 - Hostname: xxxxxxxx0188 - side+con_mysql<br>
+/con_biblio_8_128 - IP: 192.168.88.88 - Hostname: xxxxxxxxb90f - side+con_mysql<br>
+/con_mysql - IP: 192.168.88.81 - Hostname: xxxxxxxx2bbb - data+con_proto83<br>
 </p>
 
 <?php 
@@ -353,7 +412,7 @@ a, a:visited {
 <h3>Mermaid Flowchart</h3>
 <textarea rows="15" cols="90" readonly><?= htmlspecialchars($mermaid) ?></textarea>
 <p>Copy and paste this into https://mermaid.live</p>
-<h3>Mermaid Flowchart (Live) *Note: Sometimes render takes a few seconds</h3>
+<h3>Mermaid Flowchart (Live)</h3>
 	<div class="mermaid">
 	<?= htmlspecialchars($mermaid) ?>
 	</div>
@@ -369,7 +428,7 @@ a, a:visited {
 		<html>
 		<head>
 		<meta charset="utf-8">
-		<title>DockerJelly simple ASCII Network Diagram Gen.</title>
+		<title>Docker simple ASCII Network Diagram Gen.</title>
 		<style>
 		body {
 				font-family: monospace;
@@ -391,7 +450,7 @@ a, a:visited {
 		</head>
 		<body>
 
-		<h2>DockerJelly simple ASCII Network Diagram Generator (Using ./show_ip.sh + Rules)</h2>
+		<h2>Docker simple ASCII Network Diagram Generator (Using ./show_ip.sh + Rules)</h2>
 		<h2>Please follow-up the contents of each .txt in the URL</h2>
 		${preContent}
 
