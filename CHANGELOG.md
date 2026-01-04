@@ -1,3 +1,15 @@
+## [unreleased] yyyy-mm-dd
+### Added
+- n.a.
+
+### Changes
+- Updated mynetwork.txt compatible to new rules/roles
+
+### Fixed
+- n.a.
+
+---
+
 ## [2.0.0] 2026-01-04
 
 ### Added
@@ -11,6 +23,8 @@
 
 ### fixed
 - A lot of typo on the README.md
+
+---
 
 ## [1.0.1]  2025-12-30
 
