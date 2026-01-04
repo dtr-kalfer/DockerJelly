@@ -382,7 +382,7 @@ a, a:visited {
 		<li>prxy → Proxy container, Connected to your tunnel (tunn)</li>
 		<li>top1 → Use this as root container only if you don't have tunnel (Proxy only setup)</li>
 		<li>app+con_xxx → child of prxy (if using tunnel), or top1</li>
-		<li>data+con_a+con_b → DB container serving those apps</li>
+		<li>data+con_a+con_b → Database serving specific app containers</li>
 		<li>side+con_mysql → side/failsafe container attached to DB</li>
 	</ul>
 

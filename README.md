@@ -82,10 +82,12 @@ chmod +x show_ip.sh
 
 | **Rules**             | **Description**           |
 | ---------------------- | -------------------------------- |
-| **top1** | Root container (reverse proxy / entry point) |
-| **con_xxx**     | Child of the root container      |
-| **data+con_a+con_b**          | Database serving specific containers |
-| **side+con_db**     | Standalone / failsafe container using the DB |
+| **tunn**     | Tunnel or external entry point (Cloudflare, ngrok, zrok, etc.)      |
+| **prxy**     | Internal reverse proxy (Nginx, Traefik, Apache)      |
+| **top1** | Use this as root container ONLY if you don't have tunnel (Proxy only setup) |
+| **app+con_xxx**     | Child of prxy (or top1), where your app lives      |
+| **data+con_a+con_b..**          | Database serving specific app containers, append app containers using (+) symbol *no spaces*|
+| **side+con_db**     | Standalone / failsafe container using the Database |
 
 6. Upload mynetwork.txt to **DockerJelly** and generate:
 ### 👉 ASCII diagram
