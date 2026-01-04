@@ -172,7 +172,7 @@ E <---> H[⬡︎ con_biblio_8_128<br>192.168.88.88<br>xxxxxxxxb90f]
 	- *Use the same database*
 	- *Operate independently*
 	- *Use a different tunnel / proxy*
-	- *Declared using side+con_mysqldb*
+	- *Declared using side+con_mysql*
 	
 8. Final mynetwork.txt, ready to upload to DockerJelly:
 	```bash
