@@ -150,22 +150,25 @@ E <---> H[⬡︎ con_biblio_8_128<br>192.168.88.88<br>xxxxxxxxb90f]
 
 2. From our network diagram above, we know: 
 
-	a. con_nginx_sl is the reverse proxy
-	→ *Append **top1** *
+	a. con_tunnelx is our tunnel
+	→ *Append **tunn** *
 
-	b. con_proto83 and con_bulletin83 are children of the proxy con_nginx_s1
-	→ *We reference these with 'con_nginx_sl'*
+	b. con_proxy1 is our proxy
+	→ *Append **prxy** *
 
-	c. con_bulletin83 is a stateless
+	b. con_proto83 and con_bulletin83 are children of the proxy con_proxy1
+	→ *We reference these with 'con_proxy1'*
+
+	c. con_bulletin is stateless
 	→ *No database dependency*
 
 	d. con_proto83 requires database access
 	→ *Include in the database rule*
 
-	e. con_mysqldb is the database container
+	e. con_mysql is the database container
 	→ *Declared using data+con_proto83*
 
-	f. con_blogbug, con_biblio_8_128, and con_stray_126:
+	f. con_blogbug, con_biblio_8_128, and con_tracer_126:
 	- *Use the same database*
 	- *Operate independently*
 	- *Use a different tunnel / proxy*
@@ -209,7 +212,11 @@ http://localhost/dockerjelly/
 
 ### ✔ This tool assumes:
 
-- One primary ingress (top1)
+DockerJelly supports two network modes. The mode is auto-detected from the input file:
+- Tunnel–Proxy Mode (tunn+prxy): A split ingress architecture where external access and internal routing are handled by separate containers.
+- Legacy Mode (top1): A traditional single-entry container setup where one container acts as the main ingress (e.g. Nginx or Apache).
+
+Single database:
 - DB dependencies are declared via data+container
 - Containers without explicit DB linkage are detached
 
