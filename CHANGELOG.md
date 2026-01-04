@@ -1,3 +1,17 @@
+## [2.0.0] 2026-01-04
+
+### Added
+- Tunnel–Proxy Mode (Modern / Split Ingress)
+- Semantics i.e. app+name_of_container
+- New rules and description
+- CHANGELOG.md
+
+### Changes
+- Improved the legacy mode (Proxy only as root container) to include Tunnel-proxy mode
+
+### fixed
+- A lot of typo on the README.md
+
 ## [1.0.1]  2025-12-30
 
 ### Changes
