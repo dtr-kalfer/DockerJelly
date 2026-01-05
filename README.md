@@ -54,6 +54,7 @@ Perfect for:
 
 ## 🚀 Features
 
+- Visualize running and stopped containers
 - ASCII tree network diagram
 - Mermaid flowchart generation
 - Mermaid rendered directly in-browser
