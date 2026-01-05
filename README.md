@@ -70,6 +70,7 @@ chmod +x show_ip.sh
 ./show_ip.sh
 ```
 - *This prints container names, IP addresses, and hostnames.*
+- *It also shows STOPPED containers and their hostnames* 
 
 2. Create your network file
 ```console
