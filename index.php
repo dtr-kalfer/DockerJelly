@@ -386,7 +386,7 @@ a, a:visited {
 		<li>side+con_mysql → side/failsafe container attached to DB</li>
 	</ul>
 
-<h3>Example of network.txt:</h3>
+<h3>Example of mynetwork.txt:</h3>
 <p>
 /con_tunnelx - IP: 192.168.88.99 - Hostname: xxxxxxxx3e42 - tunn<br>
 /con_proxy1 - IP: 192.168.88.61 - Hostname: xxxxxxxx72ff - prxy<br>
